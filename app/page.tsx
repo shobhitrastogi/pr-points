@@ -532,6 +532,17 @@ export default function Home() {
       }}>
         For informational use only · Not migration advice
       </footer>
+       <style>{`
+  @media (max-width: 820px) {
+    .calc-main { grid-template-columns: 1fr !important; }
+  }
+  .header-score-chip { display: inline-flex; }
+  @media (min-width: 821px) {
+    .header-score-chip { display: none !important; }
+  }
+`}</style>
     </div>
+    
   );
+  
 }
