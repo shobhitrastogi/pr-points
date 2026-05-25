@@ -62,7 +62,7 @@ export default function Navbar() {
 </motion.nav>
              <motion.header  style={{
     position: "fixed",
-    top: 8,
+    top: 12,
     left: 0,
     width: "100%",
     marginTop:"40px",
@@ -168,6 +168,7 @@ export default function Navbar() {
                                     height: "100%",
                                   borderRadius: 999,
                                   background: "rgba(255,255,255,0.88)",
+                                  marginBottom: "8px",
                                 }}
                               />
                             </div>

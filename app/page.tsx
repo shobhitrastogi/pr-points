@@ -51,7 +51,7 @@ export default function Home() {
       fontFamily: "'Plus Jakarta Sans', sans-serif",
       background: "#f1f5f9",
       minHeight: "100vh",
-      marginTop: "120px",
+      marginTop: "150px",
     }}>
 
       <main
