@@ -11,45 +11,58 @@ export default function Navbar() {
     const { total, answered, passed, pct, animatedTotal } = useCalc();
     return (
         <>
-        <motion.nav
-            className="flex items-center justify-center md:justify-between border-b px-6 py-4 bg-white sticky top-0 z-50"
-            initial={{ opacity: 0, y: -16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
-        >
-            {/* Logo + Brand */}
-            <Link href="/" className="flex items-center gap-2">
-                <motion.img
-                    src={logo.src}
-                    alt="Logo"
-                    className="h-15 w-auto"
-                    initial={{ opacity: 0, scale: 0.8, rotate: -8 }}
-                    animate={{ opacity: 1, scale: 1, rotate: 0 }}
-                    transition={{ delay: 0.15, duration: 0.45, type: "spring", stiffness: 260, damping: 20 }}
-                    whileHover={{ scale: 1.08, rotate: 4, transition: { duration: 0.2 } }}
-                />
-            </Link>
+  <motion.nav
+  className="flex items-center justify-between border-b px-6 py-4 bg-white sticky top-0 z-50 relative"
+  initial={{ opacity: 0, y: -16 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+>
 
-            {/* Nav links — hidden on mobile */}
-            <motion.div
-                className="hidden md:flex gap-6 text-sm"
-                initial={{ opacity: 0, x: 12 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.28, duration: 0.35 }}
-            >
-                <motion.div whileHover={{ y: -1 }} whileTap={{ y: 0 }} transition={{ duration: 0.15 }}>
-                    <Link
-                        href="/"
-                        className="relative transition-colors hover:text-primary"
-                    >
-                        Home
-                    </Link>
-                </motion.div>
-            </motion.div>
-        </motion.nav>
+  {/* LEFT SIDE TEXT (always visible, mobile left aligned) */}
+  <h1 className="text-base md:text-xl font-bold whitespace-normal md:whitespace-nowrap max-w-[140px] md:max-w-none leading-tight">
+  Your Australian Dream Partner
+</h1>
+
+  {/* CENTER LOGO — ALWAYS CENTERED using absolute centering */}
+  <Link
+    href="/"
+    className="absolute left-1/2 -translate-x-1/2 flex items-center"
+  >
+    <motion.img
+      src={logo.src}
+      alt="Logo"
+      className="h-12 w-auto"
+      initial={{ opacity: 0, scale: 0.8, rotate: -8 }}
+      animate={{ opacity: 1, scale: 1, rotate: 0 }}
+      transition={{
+        delay: 0.15,
+        duration: 0.45,
+        type: "spring",
+        stiffness: 260,
+        damping: 20,
+      }}
+      whileHover={{ scale: 1.08, rotate: 4, transition: { duration: 0.2 } }}
+    />
+  </Link>
+
+  {/* RIGHT MENU — Only on desktop */}
+  <motion.div
+    className="hidden md:flex gap-6 text-sm"
+    initial={{ opacity: 0, x: 12 }}
+    animate={{ opacity: 1, x: 0 }}
+    transition={{ delay: 0.28, duration: 0.35 }}
+  >
+    <motion.div whileHover={{ y: -1 }} whileTap={{ y: 0 }}>
+      <Link href="/" className="transition-colors hover:text-primary">
+        Home
+      </Link>
+    </motion.div>
+  </motion.div>
+
+</motion.nav>
              <motion.header  style={{
     position: "fixed",
-    top: 0,
+    top: 8,
     left: 0,
     width: "100%",
     marginTop:"40px",
