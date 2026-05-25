@@ -12,22 +12,13 @@ export default function Navbar() {
     return (
         <>
   <motion.nav
-  className="flex items-center justify-between border-b px-6 py-4 bg-white sticky top-0 z-50 relative"
+  className="flex items-center justify-between border-b px-6 py-4 bg-white sticky top-0 z-50"
   initial={{ opacity: 0, y: -16 }}
   animate={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
 >
-
-  {/* LEFT SIDE TEXT (always visible, mobile left aligned) */}
-  <h1 className="text-base md:text-xl font-bold whitespace-normal md:whitespace-nowrap max-w-[140px] md:max-w-none leading-tight">
-  Your Australian Dream Partner
-</h1>
-
-  {/* CENTER LOGO — ALWAYS CENTERED using absolute centering */}
-  <Link
-    href="/"
-    className="absolute left-1/2 -translate-x-1/2 flex items-center"
-  >
+  {/* LEFT — LOGO */}
+  <Link href="/" className="flex items-center">
     <motion.img
       src={logo.src}
       alt="Logo"
@@ -45,7 +36,12 @@ export default function Navbar() {
     />
   </Link>
 
-  {/* RIGHT MENU — Only on desktop */}
+  {/* RIGHT — TEXT (2 lines on mobile, 1 line on desktop) */}
+  <h1 className="text-base md:text-xl font-bold whitespace-normal md:whitespace-nowrap max-w-[140px] md:max-w-none leading-tight text-right">
+    Your Australian Dream Partner
+  </h1>
+
+  {/* RIGHT MENU — only desktop */}
   <motion.div
     className="hidden md:flex gap-6 text-sm"
     initial={{ opacity: 0, x: 12 }}
@@ -58,7 +54,6 @@ export default function Navbar() {
       </Link>
     </motion.div>
   </motion.div>
-
 </motion.nav>
              <motion.header  style={{
     position: "fixed",
